@@ -4,3 +4,8 @@ Manage your Spigot Minecraft server, no restarts required.
 
 ## Usage
 Settings are retrieved from `plugins/ServerSettings/config.yml`, reload them with `/ss reload` in-game  (requires `server-settings.command` permission, or Operator status) or from the console.
+
+## What can be changed?
+- [x] Max Player Count
+- [x] Server MOTD
+- [x] PVP
