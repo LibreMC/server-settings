@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 import io.github.winnpixie.hukkit.configs.adapters.BukkitAdapter;
 import io.github.winnpixie.serversettings.ServerSettings;
 import io.github.winnpixie.serversettings.commands.BaseCommand;
-import io.github.winnpixie.serversettings.utilities.TextHelper;
+import io.github.winnpixie.serversettings.utilities.ChatHelper;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -28,7 +28,7 @@ public class ServerSettingsCommand extends BaseCommand {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (!sender.hasPermission("server-settings.command") && !sender.isOp()) {
-            sender.spigot().sendMessage(TextHelper.NO_PERMISSION);
+            sender.spigot().sendMessage(ChatHelper.NO_PERMISSION);
             return true;
         }
 

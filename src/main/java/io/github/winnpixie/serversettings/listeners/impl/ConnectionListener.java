@@ -1,9 +1,9 @@
 package io.github.winnpixie.serversettings.listeners.impl;
 
+import io.github.winnpixie.hukkit.TextHelper;
 import io.github.winnpixie.serversettings.Config;
 import io.github.winnpixie.serversettings.ServerSettings;
 import io.github.winnpixie.serversettings.listeners.BaseListener;
-import io.github.winnpixie.serversettings.utilities.TextHelper;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerLoginEvent;
@@ -21,9 +21,11 @@ public class ConnectionListener extends BaseListener {
 
         int port = plugin.getServer().getPort();
         plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, () -> {
-            if (!Config.BROADCAST_TO_LAN) return;
+            if (!Config.BROADCAST_TO_LAN)
+                return;
 
-            // According to https://wiki.vg/Server_List_Ping#Ping_via_LAN_.28Open_to_LAN_in_Singleplayer.29
+            // According to
+            // https://wiki.vg/Server_List_Ping#Ping_via_LAN_.28Open_to_LAN_in_Singleplayer.29
             try (DatagramSocket socket = new DatagramSocket()) {
                 var motd = plugin.getServer().getMotd();
                 if (Config.MOTDS.size() > 0) {
@@ -44,7 +46,8 @@ public class ConnectionListener extends BaseListener {
     private void onPing(ServerListPingEvent event) {
         event.setMaxPlayers(Config.MAX_PLAYERS);
 
-        if (Config.MOTDS.isEmpty()) return;
+        if (Config.MOTDS.isEmpty())
+            return;
         event.setMotd(TextHelper.formatColors(Config.MOTDS.get((int) (Math.random() * Config.MOTDS.size()))));
     }
 
@@ -60,6 +63,7 @@ public class ConnectionListener extends BaseListener {
             return;
         }
 
-        if (oldResult == PlayerLoginEvent.Result.KICK_FULL) event.allow();
+        if (oldResult == PlayerLoginEvent.Result.KICK_FULL)
+            event.allow();
     }
 }
