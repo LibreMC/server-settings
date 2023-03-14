@@ -4,7 +4,7 @@ description: "Manage various server.properties entries without restarting your s
 author: "Hannah"
 website: "https://winnpixie.xyz/"
 main: "io.github.winnpixie.serversettings.ServerSettings"
-api-version: 1.19
+api-version: 1.16
 
 commands:
   server-settings:
