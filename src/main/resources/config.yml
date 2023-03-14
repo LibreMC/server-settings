@@ -1,0 +1,10 @@
+server:
+  max-players: 20
+  messages-of-the-day:
+    - "&cRed MOTD"
+    - "&aGreen MOTD"
+    - "&3Blue MOTD"
+    - "&#FF00FFPurple MOTD"
+    - "Multi-line\nMOTD"
+  broadcast-to-lan: false
+  allow-pvp: true

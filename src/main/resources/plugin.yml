@@ -1,0 +1,14 @@
+name: "ServerSettings"
+version: "0.0.1"
+description: "Manage various server.properties entries without restarting your server!"
+author: "Hannah"
+website: "https://winnpixie.xyz/"
+main: "io.github.winnpixie.serversettings.ServerSettings"
+api-version: 1.19
+
+commands:
+  server-settings:
+    permission: server-settings.command
+    aliases: [ "ss" ]
+    description: "Execute various ServerSettings actions."
+    usage: "/server-settings [subcommand] ..."
