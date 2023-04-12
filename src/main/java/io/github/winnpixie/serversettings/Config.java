@@ -5,15 +5,27 @@ import io.github.winnpixie.hukkit.configs.Link;
 import java.util.List;
 
 public class Config {
-    @Link(path = "server.max-players")
+    // Max Players
+    @Link(path = "server.max-players.override")
+    public static boolean OVERRIDE_MAX_PLAYERS;
+
+    @Link(path = "server.max-players.value")
     public static int MAX_PLAYERS;
 
-    @Link(path = "server.messages-of-the-day")
+    // MOTD
+    @Link(path = "server.motd.override")
+    public static boolean OVERRIDE_MOTD;
+
+    @Link(path = "server.motd.messages")
     public static List<String> MOTDS;
+
+    // PvP
+    @Link(path = "server.pvp.override")
+    public static boolean OVERRIDE_PVP;
+
+    @Link(path = "server.pvp.allowed")
+    public static boolean ALLOW_PVP;
 
     @Link(path = "server.broadcast-to-lan")
     public static boolean BROADCAST_TO_LAN;
-
-    @Link(path = "server.allow-pvp")
-    public static boolean ALLOW_PVP;
 }

@@ -1,5 +1,5 @@
 name: "ServerSettings"
-version: "0.0.1"
+version: "0.0.2"
 description: "Manage various server.properties entries without restarting your server!"
 author: "Hannah"
 website: "https://winnpixie.xyz/"

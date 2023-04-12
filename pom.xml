@@ -6,7 +6,7 @@
 
     <groupId>io.github.winnpixie</groupId>
     <artifactId>server-settings</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -37,7 +37,7 @@
         <dependency>
             <groupId>io.github.winnpixie</groupId>
             <artifactId>hukkit</artifactId>
-            <version>0.0.2</version>
+            <version>0.0.7</version>
         </dependency>
     </dependencies>
 

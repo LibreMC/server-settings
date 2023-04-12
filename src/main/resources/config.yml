@@ -1,10 +1,16 @@
 server:
-  max-players: 20
-  messages-of-the-day:
-    - "&cRed MOTD"
-    - "&aGreen MOTD"
-    - "&3Blue MOTD"
-    - "&#FF00FFPurple MOTD"
-    - "Multi-line\nMOTD"
+  max-players:
+    override: true
+    value: 20
+  motd:
+    override: true
+    messages:
+      - "&cRed MOTD"
+      - "&aGreen MOTD"
+      - "&3Blue MOTD"
+      - "&#FF00FFPurple MOTD"
+      - "Multi-line\nMOTD"
+  pvp:
+    override: false
+    allowed: true
   broadcast-to-lan: false
-  allow-pvp: true
