@@ -17,6 +17,7 @@ public class PlayerActionListener extends BaseListener {
 
     @EventHandler(priority = EventPriority.LOWEST)
     private void onPlayerDamaged(EntityDamageByEntityEvent event) {
+        if (!Config.OVERRIDE_PVP) return;
         if (Config.ALLOW_PVP) return;
         if (!(event.getEntity() instanceof Player)) return;
 

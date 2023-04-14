@@ -49,6 +49,11 @@ public class ServerSettingsCommand extends BaseCommand<ServerSettings> {
     }
 
     private void reloadConfiguration(CommandSender sender) {
+        if (!sender.hasPermission("server-settings.command.reload") && !sender.isOp()) {
+            sender.spigot().sendMessage(CommandErrors.LACKS_PERMISSIONS);
+            return;
+        }
+
         this.getPlugin().reloadConfig();
 
         var adapter = (BukkitAdapter) getPlugin().configManager.getAdapter();

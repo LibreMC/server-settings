@@ -9,6 +9,6 @@ api-version: 1.16
 commands:
   server-settings:
     permission: server-settings.command
-    aliases: [ "ss" ]
+    aliases: [ "serversettings", "ss" ]
     description: "Execute various ServerSettings actions."
     usage: "/server-settings [subcommand] ..."
