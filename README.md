@@ -3,9 +3,16 @@
 Manage your Spigot Minecraft server, no restarts required.
 
 ## Usage
-Settings are retrieved from `plugins/ServerSettings/config.yml`, reload them with `/ss reload` in-game  (requires `server-settings.command` permission, or Operator status) or from the console.
-
 You can change the following properties with this plugin:
 - Max Player Count
 - Server MOTD
 - PVP
+- LAN Broadcasting
+
+### Commands:
+* /server-settings (alias: /ss) - Entrypoint for ServerSettings commands.
+    * /server-settings reload (alias: /ss rl) - Reloads configuration from file.
+
+### Permissions:
+* server-settings.command
+    * server-settings.command.reload
