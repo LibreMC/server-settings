@@ -21,7 +21,7 @@ public class ServerSettingsCommand extends BaseCommand<ServerSettings> {
             .create();
     private final BaseComponent[] usageMessage = new ComponentBuilder("=== Server-Settings ===")
             .color(ChatColor.GOLD)
-            .append("\n/server-settings reload - Reloads the plugin configuration from file.", ComponentBuilder.FormatRetention.NONE)
+            .append("\n/server-settings reload|rl - Reloads the plugin configuration from file.", ComponentBuilder.FormatRetention.NONE)
             .create();
 
     public ServerSettingsCommand(ServerSettings plugin) {
