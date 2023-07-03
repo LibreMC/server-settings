@@ -1,16 +1,16 @@
-package io.github.winnpixie.serversettings.listeners.impl;
+package io.github.winnpixie.serversettings.listeners;
 
 import io.github.winnpixie.hukkit.MathHelper;
 import io.github.winnpixie.hukkit.TextHelper;
+import io.github.winnpixie.hukkit.listeners.EventListener;
 import io.github.winnpixie.serversettings.Config;
 import io.github.winnpixie.serversettings.ServerSettings;
-import io.github.winnpixie.serversettings.listeners.BaseListener;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.server.ServerListPingEvent;
 
-public class ConnectionListener extends BaseListener {
+public class ConnectionListener extends EventListener<ServerSettings> {
     public ConnectionListener(ServerSettings plugin) {
         super(plugin);
     }
