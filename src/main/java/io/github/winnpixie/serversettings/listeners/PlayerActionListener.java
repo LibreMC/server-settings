@@ -3,6 +3,7 @@ package io.github.winnpixie.serversettings.listeners;
 import io.github.winnpixie.hukkit.listeners.EventListener;
 import io.github.winnpixie.serversettings.Config;
 import io.github.winnpixie.serversettings.ServerSettings;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
@@ -21,9 +22,11 @@ public class PlayerActionListener extends EventListener<ServerSettings> {
         if (Config.ALLOW_PVP) return;
         if (!(event.getEntity() instanceof Player)) return;
 
-        var killer = event.getDamager();
-        if (killer instanceof Projectile projectile) {
+        Entity killer = event.getDamager();
+        if (killer instanceof Projectile) {
+            Projectile projectile = (Projectile) killer;
             if (!(projectile.getShooter() instanceof LivingEntity)) return;
+
             killer = (LivingEntity) projectile.getShooter();
         }
 

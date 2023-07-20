@@ -41,8 +41,13 @@ public class ServerSettingsCommand extends BaseCommand<ServerSettings> {
         }
 
         switch (args[0].toLowerCase()) {
-            case "reload", "rl" -> reloadConfiguration(sender);
-            default -> sender.spigot().sendMessage(CommandErrors.INVALID_ARGUMENTS);
+            case "reload":
+            case "rl":
+                reloadConfiguration(sender);
+                break;
+            default:
+                sender.spigot().sendMessage(CommandErrors.INVALID_ARGUMENTS);
+                break;
         }
 
         return true;
@@ -56,7 +61,7 @@ public class ServerSettingsCommand extends BaseCommand<ServerSettings> {
 
         this.getPlugin().reloadConfig();
 
-        var adapter = (BukkitAdapter) getPlugin().configManager.getAdapter();
+        BukkitAdapter adapter = (BukkitAdapter) getPlugin().configManager.getAdapter();
         adapter.setConfig(getPlugin().getConfig());
         getPlugin().configManager.load();
 

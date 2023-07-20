@@ -5,11 +5,11 @@ server:
   motd:
     override: true
     messages:
-      - "&cRed MOTD"
-      - "&aGreen MOTD"
-      - "&3Blue MOTD"
-      - "&#FF00FFPurple MOTD"
-      - "Multi-line\nMOTD"
+      - "<red>Red MOTD"
+      - "<green>Green MOTD"
+      - "<blue>Blue MOTD"
+      - "<#FF00FF>Purple MOTD"
+      - "Multi-line\n<gold>Gold MOTD"
   pvp:
     override: false
     allowed: true

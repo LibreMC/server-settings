@@ -23,7 +23,7 @@ public class ConnectionListener extends EventListener<ServerSettings> {
 
         if (Config.OVERRIDE_MOTD
                 && !Config.MOTDS.isEmpty()) {
-            event.setMotd(TextHelper.formatColors(Config.MOTDS.get(MathHelper.getRandomInt(0, Config.MOTDS.size()))));
+            event.setMotd(TextHelper.formatText(Config.MOTDS.get(MathHelper.getRandomInt(0, Config.MOTDS.size()))));
         }
     }
 
@@ -31,10 +31,10 @@ public class ConnectionListener extends EventListener<ServerSettings> {
     private void onLogin(PlayerLoginEvent event) {
         if (!Config.OVERRIDE_MAX_PLAYERS) return;
 
-        var oldResult = event.getResult();
+        PlayerLoginEvent.Result oldResult = event.getResult();
 
         if (getPlugin().getServer().getOnlinePlayers().size() >= Config.MAX_PLAYERS) {
-            var kickMessage = getPlugin().getServer().spigot().getConfig()
+            String kickMessage = getPlugin().getServer().spigot().getConfig()
                     .getString("messages.server-full", event.getKickMessage());
 
             event.disallow(PlayerLoginEvent.Result.KICK_FULL, kickMessage);
