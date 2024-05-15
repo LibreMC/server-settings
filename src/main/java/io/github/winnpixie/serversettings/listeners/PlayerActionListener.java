@@ -1,6 +1,6 @@
 package io.github.winnpixie.serversettings.listeners;
 
-import io.github.winnpixie.hukkit.listeners.EventListener;
+import io.github.winnpixie.commons.spigot.listeners.EventListener;
 import io.github.winnpixie.serversettings.Config;
 import io.github.winnpixie.serversettings.ServerSettings;
 import org.bukkit.entity.Entity;

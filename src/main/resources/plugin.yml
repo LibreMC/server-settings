@@ -1,10 +1,10 @@
 name: "ServerSettings"
-version: "0.0.4"
+version: "0.0.5"
 description: "Manage various server.properties entries without restarting your server!"
 author: "Hannah"
 website: "https://winnpixie.xyz/"
 main: "io.github.winnpixie.serversettings.ServerSettings"
-api-version: 1.16
+api-version: 1.20
 
 commands:
   server-settings:

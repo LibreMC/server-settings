@@ -1,8 +1,8 @@
 package io.github.winnpixie.serversettings.commands.admin;
 
-import io.github.winnpixie.hukkit.commands.BaseCommand;
-import io.github.winnpixie.hukkit.commands.CommandErrors;
-import io.github.winnpixie.hukkit.configs.adapters.BukkitAdapter;
+import io.github.winnpixie.commons.spigot.commands.BaseCommand;
+import io.github.winnpixie.commons.spigot.commands.CommandErrors;
+import io.github.winnpixie.commons.spigot.configs.adapters.BukkitAdapter;
 import io.github.winnpixie.serversettings.ServerSettings;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -16,13 +16,13 @@ import java.util.Collections;
 import java.util.List;
 
 public class ServerSettingsCommand extends BaseCommand<ServerSettings> {
-    private final BaseComponent[] reloadedMessage = new ComponentBuilder("Settings reloaded!")
+    private final BaseComponent reloadedMessage = new ComponentBuilder("Settings reloaded!")
             .color(ChatColor.GREEN)
-            .create();
-    private final BaseComponent[] usageMessage = new ComponentBuilder("=== Server-Settings ===")
+            .build();
+    private final BaseComponent usageMessage = new ComponentBuilder("=== Server-Settings ===")
             .color(ChatColor.GOLD)
             .append("\n/server-settings reload|rl - Reloads the plugin configuration from file.", ComponentBuilder.FormatRetention.NONE)
-            .create();
+            .build();
 
     public ServerSettingsCommand(ServerSettings plugin) {
         super(plugin, "server-settings");
@@ -61,9 +61,9 @@ public class ServerSettingsCommand extends BaseCommand<ServerSettings> {
 
         this.getPlugin().reloadConfig();
 
-        BukkitAdapter adapter = (BukkitAdapter) getPlugin().configManager.getAdapter();
+        BukkitAdapter adapter = (BukkitAdapter) getPlugin().configuration.getAdapter();
         adapter.setConfig(getPlugin().getConfig());
-        getPlugin().configManager.load();
+        getPlugin().configuration.load();
 
         sender.spigot().sendMessage(reloadedMessage);
     }

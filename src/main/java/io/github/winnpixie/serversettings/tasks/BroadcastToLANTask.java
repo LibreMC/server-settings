@@ -1,7 +1,7 @@
 package io.github.winnpixie.serversettings.tasks;
 
-import io.github.winnpixie.hukkit.MathHelper;
-import io.github.winnpixie.hukkit.TextHelper;
+import io.github.winnpixie.commons.spigot.MathHelper;
+import io.github.winnpixie.commons.spigot.TextHelper;
 import io.github.winnpixie.serversettings.Config;
 import io.github.winnpixie.serversettings.ServerSettings;
 
