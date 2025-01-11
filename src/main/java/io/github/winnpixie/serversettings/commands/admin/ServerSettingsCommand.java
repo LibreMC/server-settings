@@ -2,7 +2,7 @@ package io.github.winnpixie.serversettings.commands.admin;
 
 import io.github.winnpixie.commons.spigot.commands.BaseCommand;
 import io.github.winnpixie.commons.spigot.commands.CommandErrors;
-import io.github.winnpixie.commons.spigot.configs.adapters.BukkitAdapter;
+import io.github.winnpixie.commons.spigot.configurations.adapters.BukkitConfigurationAdapter;
 import io.github.winnpixie.serversettings.ServerSettings;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -21,16 +21,16 @@ public class ServerSettingsCommand extends BaseCommand<ServerSettings> {
             .build();
     private final BaseComponent usageMessage = new ComponentBuilder("=== Server-Settings ===")
             .color(ChatColor.GOLD)
-            .append("\n/server-settings reload|rl - Reloads the plugin configuration from file.", ComponentBuilder.FormatRetention.NONE)
+            .append("\n/serversettings reload|rl - Reloads the plugin configuration from file.", ComponentBuilder.FormatRetention.NONE)
             .build();
 
     public ServerSettingsCommand(ServerSettings plugin) {
-        super(plugin, "server-settings");
+        super(plugin, "serversettings");
     }
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (!sender.hasPermission("server-settings.command") && !sender.isOp()) {
+        if (!sender.hasPermission("serversettings.command") && !sender.isOp()) {
             sender.spigot().sendMessage(CommandErrors.LACKS_PERMISSIONS);
             return true;
         }
@@ -54,15 +54,15 @@ public class ServerSettingsCommand extends BaseCommand<ServerSettings> {
     }
 
     private void reloadConfiguration(CommandSender sender) {
-        if (!sender.hasPermission("server-settings.command.reload") && !sender.isOp()) {
+        if (!sender.hasPermission("serversettings.command.reload") && !sender.isOp()) {
             sender.spigot().sendMessage(CommandErrors.LACKS_PERMISSIONS);
             return;
         }
 
         this.getPlugin().reloadConfig();
 
-        BukkitAdapter adapter = (BukkitAdapter) getPlugin().configuration.getAdapter();
-        adapter.setConfig(getPlugin().getConfig());
+        BukkitConfigurationAdapter adapter = (BukkitConfigurationAdapter) getPlugin().configuration.getAdapter();
+        adapter.setConfiguration(getPlugin().getConfig());
         getPlugin().configuration.load();
 
         sender.spigot().sendMessage(reloadedMessage);

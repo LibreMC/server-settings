@@ -23,9 +23,8 @@ public class PlayerActionListener extends EventListener<ServerSettings> {
         if (!(event.getEntity() instanceof Player)) return;
 
         Entity killer = event.getDamager();
-        if (killer instanceof Projectile) {
-            Projectile projectile = (Projectile) killer;
-            if (!(projectile.getShooter() instanceof LivingEntity)) killer = (LivingEntity) projectile.getShooter();
+        if (killer instanceof Projectile projectile) {
+            if (projectile.getShooter() instanceof LivingEntity living) killer = living;
         }
 
         if (killer instanceof Player) event.setCancelled(true);
